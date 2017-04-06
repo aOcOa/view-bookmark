@@ -19,7 +19,7 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <h2>Visualize google bookmark</h2>
-          <p>...this is a unfinished experiment and works not so ideal, it's pure client site,
+          <p>This is a unfinished experiment and works not so ideal, it's pure client site,
            it means don't try it if you have limit in network traffic.</p>
         </div>
         <Upload getDomElement={ this.getDomElement }/>
