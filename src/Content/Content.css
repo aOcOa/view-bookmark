@@ -1,0 +1,21 @@
+.content{
+	width: 80%;
+	max-width: 1024px;
+	margin:0 auto;
+}
+.content:after{
+	content: ' ';
+	clear: both;
+}
+.content_load{
+	position: fixed;
+	right: 0;
+	padding:5px 10px;
+	background-color: black;
+	color: white;
+	font-size: 14px;
+	outline: none;
+	border:none;
+	bottom: 20%;
+	cursor: pointer;
+}

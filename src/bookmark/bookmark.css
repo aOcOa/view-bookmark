@@ -1,0 +1,39 @@
+.bookmark{
+	display: inline-block;
+	position: relative;
+	float: left;
+	width: 23%;
+	background-color: black;
+	height: 200px;
+	margin: 8px;
+	overflow: hidden;
+}
+.bookmark:nth-child(4n+1){
+	margin:8px 0px;
+}
+.bookmark_title{
+	display: inline-block;
+    font-size: 14px;
+    white-space: nowrap;
+    margin: 0 10px;
+    width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bookmark_intro{
+	background-color: rgba(0, 0, 0, 0.22);
+	width: 100%;
+	bottom: 0;
+	color: white;
+	position: absolute;
+    left: 0;
+
+}
+.bookmark_404{
+    height: 100%;
+    background-color: #BBDEFB;
+    color: white;
+    font-size: 40px;
+    padding: 5px 25px;
+}
