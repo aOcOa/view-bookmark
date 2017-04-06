@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import DOMPurify from 'dompurify';
 import ImagePart from '../ImagePart/ImagePart';
 
-import './bookmark.css';
+import './Bookmark.css';
 
 class Bookmark extends Component {
 	state = {

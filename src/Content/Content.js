@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Bookmark from '../bookmark/bookmark';
+import Bookmark from '../Bookmark/Bookmark';
 import './Content.css';
 
 class Content extends Component {
