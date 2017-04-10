@@ -20,6 +20,7 @@ class ImagePart extends Component {
 		this.proccessImage(this.imagesSrc, this.index);
 		// this.renderImg.call(this,this.state.imagesSrc, this.state.index );
 	}
+	// todo:using canvas to render screenshot.
 	proccessImage(imagesSrc, index){
 		const realImgSrc = normalizeImgSrc(this.props.href, imagesSrc[index]);
 		loadImg(realImgSrc)

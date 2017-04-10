@@ -6,23 +6,36 @@ import './Bookmark.css';
 
 class Bookmark extends Component {
 	state = {
-			imagesSrc: []
+		imagesSrc: []
 	}
 	componentWillMount() {
-		if( this.props.href.toLowerCase().indexOf('.pdf') < 0){
+		const url = this.props.href.toLowerCase();
+		if( url.indexOf('.pdf') < 0){
+			if(url.match(/\.gif|png|jpg|svg/)){
+				this.setState({ imagesSrc:[this.props.href] });
+				return;
+			}
 			this.fetchContent.call(this, this.props.href);
 		}
+
 	}
 	// find some images inside bookmark
 	// todo: handle png/jpg/gif request
 	fetchContent(url) {
+		const proxt = 'https://crossorigin.me/';
+		let header = new Headers({
+		    'Access-Control-Allow-Origin':'*',
+		});
 		const req = { 
 			method: 'GET',
             mode: 'cors',
-            cache: 'default' 
+            cache: 'default',
+            header
         };
-		fetch(url, req)
-		.then((response) => response.blob())
+		fetch(proxt + url, req)
+		.then((response) => {
+			return response.blob();
+		})
 		.then(data => {
 			const resReader = new FileReader();
 			resReader.onload = (event) => {
@@ -40,7 +53,8 @@ class Bookmark extends Component {
 				}
 			};
 			resReader.readAsText(data);
-		});
+		})
+		.catch( err => console.log(err.message));
 	}
 	handleChildUnmount(){
         this.setState({imagesSrc: []});
@@ -48,7 +62,7 @@ class Bookmark extends Component {
   	render() { 
 	    return (
 	    	<article className="bookmark">
-	    		{ this.state.imagesSrc.length > 1 
+	    		{ this.state.imagesSrc.length > 0 
 	    			? <ImagePart handleChildUnmount={this.handleChildUnmount.bind(this)}  imagesSrc={this.state.imagesSrc} href={this.props.href} />
 	    			: <div className="bookmark_404">Image not found!</div>
 	    		}
